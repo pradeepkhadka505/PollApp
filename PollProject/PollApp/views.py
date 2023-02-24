@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
+arr =['java', 'python', 'c','cplusplus','.net','php','javascript','sql','ruby','php','swift','scala']
+globalcnt = dict()
 
 def index(request):
-
-    arr =['java', 'python', 'c','cplusplus','.net','php','javascript','sql','ruby','php','swift','scala']
     my_dict = {
         "arr":arr
     }
@@ -13,5 +13,14 @@ def index(request):
 
 def getquery(request):
     q = request.GET['languages']
-    return HttpResponse(q)
+    if q in globalcnt:
+        globalcnt[q] = globalcnt[q]+1
+    else:
+        #for first occurance 
+        globalcnt[q] = 1
+    my_dict ={
+        "arr": arr,
+        "globalcnt": globalcnt
+    }
+    return render(request, 'index.html', context=my_dict)
     
