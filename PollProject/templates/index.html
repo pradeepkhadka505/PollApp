@@ -43,7 +43,7 @@
     <!--- for body --->
     <div class="container-fluid" style="margin-bottom: 0rem;">
         {{globalcnt}}
-        {% for ke.value in globalcnt.items %}
+        {% for key,value in globalcnt.items %}
         {{key}} - {{value}}
         <br>
         {% endfor %}
@@ -96,29 +96,22 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Programming</th>
+                            <th scope="col">Count</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        {% for key,value in globalcnt.items %}
+                            <tr>
+                                <td> {{forloop.counter}}</td>
+                                <td> {{key}}</td>
+                                <td> 
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width:{{value}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{value}}</div>
+                                      </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
