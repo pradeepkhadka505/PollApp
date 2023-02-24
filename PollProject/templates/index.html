@@ -13,7 +13,6 @@
     <title>Poll App</title>
   </head>
   <body>
-    
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">Poll App </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +60,18 @@
                 <img class="img-fluid" src="{% static 'poll.jpg'%}">
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="GET">
+                        <form action="{% url 'getquery' %}" method="GET">
+                            <input class="form-control" list="languages" name="languages" style="margin:1rem auto">
+                                <datalist id="languages">
+                                    <option value="Python">
+                                    <option value="C">
+                                    <option value="Php">
+                                    <option value="Java">
+                                    <option value="Perl">
+                                    <option value="Programming">
+                                    <option value="C++">
+                                    <option value="JavaScript">
+                                </datalist>
                             <div class="form-group">
                                 <input type="search" name="query" id="query" class="form-control">
                             </div>
@@ -82,7 +92,7 @@
         </div>
         <div class="row">
             <div class="col-md-6"  style="margin: 1rem auto 0 auto;">
-                <p class="display-4" id="about" name="about" style="text-align: center;">
+                <p class="badge bg-success" id="about" name="about" style="margin:0 auto 0 auto; text-align:center; font-size:2rem; display:block">
                     About
                 </p>
                 <hr>
@@ -93,8 +103,8 @@
         </div>
         <div class="row">
             <div class="col-md-6"  style="margin: 1rem auto 0 auto;">
-                <p class="display-4" id="instruction" name="about" style="text-align: center;">
-                    Select your Language and see results 
+                <p class="badge bg-danger" id="instruction" name="about" style="margin:0 auto 0 auto; text-align:center; font-size:2rem; display:block">
+                    instruction
                 </p>
                 <hr>
                 <!-- <ul class="list-group">

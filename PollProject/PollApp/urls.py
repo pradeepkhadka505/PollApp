@@ -3,5 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.my_poll, name='index')
+    path('', views.index, name='index'),
+    path('getquery', views.getquery, name='getquery')
 ]
